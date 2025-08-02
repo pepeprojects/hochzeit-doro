@@ -21,7 +21,7 @@ export default function Home() {
 
           <p className="
   first-letter:text-7xl first-letter:font-bold 
-  first-letter:mr-3 first-letter:float-left text-justify text-jg mt-12 ">Liebe Gäste von Dorothea und Felix,
+  first-letter:mr-3 first-letter:float-left text-justify text-lg mt-12 ">Liebe Gäste von Dorothea und Felix,
 
             folgende Zeilen sollen geheim bleiben… Falls einer der beiden sich also gerade in Eurer Nähe befindet, lasst euch nicht erwischen!
 
