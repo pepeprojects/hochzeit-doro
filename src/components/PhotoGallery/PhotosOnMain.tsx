@@ -141,23 +141,52 @@ export default function PhotosOnMain() {
             )}
 
             <AnimatePresence>
-                {photos.map((photo) => (
-                    <div
-                        key={photo.id}
-                        className={`pointer-events-auto absolute ${photo.id === '1' ? 'left-[50px] top-[200px] sm:left-[50px] sm:top-[400px] md:left-[50px] md:top-[400px]' : ''
-                            } ${photo.id === '2' ? 'top-[600px] sm:left-[100px] sm:top-[100px] md:left-[100px] md:top-[100px] lg:left-[1100px] lg:top-[400px]' : ''
-                            } ${photo.id === '3' ? 'left-[150px] top-[400px] sm:left-[250px] sm:top-[400px] md:left-[250px] md:top-[400px]' : ''
-                            } ${photo.id === '4' ? 'left-[300px] top-[200px] sm:left-[350px] sm:top-[200px] md:left-[350px] md:top-[200px]' : ''
-                            } ${photo.id === 'mega-1' ? 'left-[400px] top-[200px] sm:left-[450px] sm:top-[200px] md:left-[450px] md:top-[200px]' : ''
-                            } ${photo.id === 'mega-2' ? 'left-[500px] top-[200px] sm:left-[550px] sm:top-[200px] md:left-[550px] md:top-[200px]' : ''
-                            }`}
-                    >
-                        <PhotoCard
-                            photo={photo}
-                            onClose={handleClosePhoto}
-                        />
-                    </div>
-                ))}
+                {photos.map((photo) => {
+                    // Responsive Positionierung für alle Fotos
+                    let positionClasses = ''
+
+                    switch (photo.id) {
+                        case '1':
+                            // Foto 1: Oben links
+                            positionClasses = 'left-[20px] top-[150px] sm:left-[30px] sm:top-[200px] md:left-[50px] md:top-[250px] lg:left-[80px] lg:top-[300px]'
+                            break
+                        case '2':
+                            // Foto 2: Oben rechts (aber nicht zu weit rechts auf Mobile)
+                            positionClasses = 'right-[20px] top-[100px] sm:right-[30px] sm:top-[150px] md:right-[50px] md:top-[200px] lg:right-[100px] lg:top-[250px]'
+                            break
+                        case '3':
+                            // Foto 3: Mitte links
+                            positionClasses = 'left-[40px] top-[350px] sm:left-[60px] sm:top-[400px] md:left-[100px] md:top-[450px] lg:left-[150px] lg:top-[500px]'
+                            break
+                        case '4':
+                            // Foto 4: Mitte rechts (begrenzt auf Mobile)
+                            positionClasses = 'right-[40px] top-[300px] sm:right-[60px] sm:top-[350px] md:right-[100px] md:top-[400px] lg:right-[150px] lg:top-[450px]'
+                            break
+                        case 'mega-1':
+                            // MEGA Foto 1: Unten links
+                            positionClasses = 'left-[20px] top-[500px] sm:left-[40px] sm:top-[550px] md:left-[80px] md:top-[600px] lg:left-[120px] lg:top-[650px]'
+                            break
+                        case 'mega-2':
+                            // MEGA Foto 2: Unten rechts (begrenzt auf Mobile)
+                            positionClasses = 'right-[20px] top-[450px] sm:right-[40px] sm:top-[500px] md:right-[80px] md:top-[550px] lg:right-[120px] lg:top-[600px]'
+                            break
+                        default:
+                            // Fallback für unbekannte Fotos
+                            positionClasses = 'left-[50px] top-[200px]'
+                    }
+
+                    return (
+                        <div
+                            key={photo.id}
+                            className={`pointer-events-auto absolute ${positionClasses}`}
+                        >
+                            <PhotoCard
+                                photo={photo}
+                                onClose={handleClosePhoto}
+                            />
+                        </div>
+                    )
+                })}
             </AnimatePresence>
         </div>
     )
