@@ -42,7 +42,6 @@ export function useMegaPhotosAdvanced({ config, refreshInterval = 300000 }: UseM
         setRequiresMFA(false)
 
         try {
-            let response: Response
             let apiUrl: string
 
             // Determine which API to use
@@ -84,7 +83,7 @@ export function useMegaPhotosAdvanced({ config, refreshInterval = 300000 }: UseM
                 return
             }
 
-            response = await fetch(apiUrl)
+            const response = await fetch(apiUrl)
 
             if (!response.ok) {
                 const errorData = await response.json()

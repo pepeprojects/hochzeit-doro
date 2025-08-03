@@ -5,7 +5,7 @@ export async function GET(request: NextRequest) {
     try {
         const { searchParams } = new URL(request.url)
         const folderUrl = searchParams.get('folderUrl')
-        const fileName = searchParams.get('fileName') // Optional: specific file
+        // const fileName = searchParams.get('fileName') // Optional: specific file
 
         if (!folderUrl) {
             return NextResponse.json(
@@ -48,7 +48,7 @@ export async function GET(request: NextRequest) {
         mainFile.api.userAgent = 'HochzeitDoro/1.0 (+https://hochzeit-doro-felix.de/)'
 
         // Load attributes and get the selected file
-        let selectedFile = await mainFile.loadAttributes()
+        const selectedFile = await mainFile.loadAttributes()
         if (!selectedFile) {
             return NextResponse.json(
                 { error: 'File not found!' },
