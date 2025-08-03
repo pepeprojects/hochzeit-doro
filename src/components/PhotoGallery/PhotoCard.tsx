@@ -4,6 +4,9 @@ import { motion } from "motion/react"
 import Image from 'next/image'
 import { useState } from 'react'
 import { Photo } from '@/types/photo'
+import { Playfair_Display } from 'next/font/google'
+
+const playfair = Playfair_Display({ subsets: ['latin'] })
 
 interface PhotoCardProps {
     photo: Photo;
@@ -21,6 +24,13 @@ export default function PhotoCard({ photo, onClose }: PhotoCardProps) {
     const handleDragEnd = () => {
         setIsDragging(false)
         console.log('Drag ended')
+    }
+
+    const handleClick = () => {
+        // Öffne Mega.nz Link für Foto 3 (ID: '3')
+        if (photo.id === '3') {
+            window.open('https://mega.nz/filerequest/yPZaQ6HLPxc', '_blank')
+        }
     }
 
     const getSizeClasses = () => {
@@ -43,6 +53,7 @@ export default function PhotoCard({ photo, onClose }: PhotoCardProps) {
             dragElastic={0.1}
             onDragStart={handleDragStart}
             onDragEnd={handleDragEnd}
+            onClick={handleClick}
             className={`cursor-grab active:cursor-grabbing ${getSizeClasses()} select-none`}
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -69,6 +80,15 @@ export default function PhotoCard({ photo, onClose }: PhotoCardProps) {
                     sizes="(max-width: 768px) 96px, (max-width: 1024px) 128px, 160px"
                     draggable={false}
                 />
+
+                {/* Text Overlay für Foto 3 */}
+                {photo.id === '3' && (
+                    <div className="absolute inset-0 bg-black/40 rounded-lg flex items-center justify-center pointer-events-none">
+                        <div className={`text-white text-xs font-medium text-center px-2 ${playfair.className}`}>
+                            Fotos hochladen
+                        </div>
+                    </div>
+                )}
 
                 {/* Drag Indicator */}
                 {isDragging && (

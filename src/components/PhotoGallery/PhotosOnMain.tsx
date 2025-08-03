@@ -9,24 +9,24 @@ import { Photo } from '@/types/photo'
 const mockPhotos: Photo[] = [
     {
         id: '1',
-        url: '/background.png',
+        url: '/WhatsApp Image 2025-07-15 at 20.03.19.jpeg',
         alt: 'Hochzeitsfoto 1',
         uploadedAt: new Date(),
         uploadedBy: 'Gast 1',
         position: 1,
         x: 50,
-        y: 100,
+        y: 200,
         size: 'medium'
     },
     {
         id: '2',
-        url: '/background.png',
+        url: '/titlebanner.jpg',
         alt: 'Hochzeitsfoto 2',
         uploadedAt: new Date(),
         uploadedBy: 'Gast 2',
         position: 2,
-        x: 300,
-        y: 200,
+        x: 500,
+        y: 400,
         size: 'large'
     },
     {

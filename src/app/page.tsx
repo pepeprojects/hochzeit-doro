@@ -61,6 +61,25 @@ export default function Home() {
               <span>•</span>
               <span>Mit ❤️ gemacht</span>
             </div>
+            <div className="mt-4 flex justify-center space-x-4">
+              <a
+                href="https://hochzeit-doro-felix.de"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-xs text-amber-100/60 hover:text-amber-100/80 transition-colors duration-200 underline"
+              >
+                hochzeit-doro-felix.de
+              </a>
+              <span className="text-amber-100/60"></span>
+              <a
+                href="https://hochzeit-doro-felix.de/#infos"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-xs text-amber-100/60 hover:text-amber-100/80 transition-colors duration-200 underline"
+              >
+                Infos
+              </a>
+            </div>
           </div>
         </footer>
 
