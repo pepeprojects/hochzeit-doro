@@ -76,15 +76,10 @@ export default function PhotosOnMain() {
                 {photos.map((photo) => (
                     <div
                         key={photo.id}
-                        className={`pointer-events-auto ${photo.id === '1' ? 'sm:left-[50px] sm:top-[400px]' : ''
-                            } ${photo.id === '2' ? 'sm:left-[250px] sm:top-[100px]' : ''
-                            } ${photo.id === '3' ? 'sm:left-[250px] sm:top-[400px]' : ''
+                        className={`pointer-events-auto absolute ${photo.id === '1' ? 'left-[50px] top-[200px] sm:left-[50px] sm:top-[400px] md:left-[50px] md:top-[400px]' : ''
+                            } ${photo.id === '2' ? 'top-[600px] sm:left-[100px] sm:top-[100px] md:left-[100px] md:top-[100px] lg:left-[1100px] lg:top-[400px]' : ''
+                            } ${photo.id === '3' ? 'left-[150px] top-[400px] sm:left-[250px] sm:top-[400px] md:left-[250px] md:top-[400px]' : ''
                             }`}
-                        style={{
-                            position: 'absolute',
-                            left: `${photo.x}px`,
-                            top: `${photo.y}px`,
-                        }}
                     >
                         <PhotoCard
                             photo={photo}
