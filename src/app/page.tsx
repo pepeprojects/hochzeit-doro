@@ -1,6 +1,7 @@
 import { Playfair_Display } from 'next/font/google'
 import styles from './page.module.css'
 import './iframe.css'
+import PhotosOnMain from '@/components/PhotoGallery/PhotosOnMain'
 
 const playfair = Playfair_Display({ subsets: ['latin'] })
 
@@ -26,11 +27,11 @@ export default function Home() {
             folgende Zeilen sollen geheim bleiben… Falls einer der beiden sich also gerade in Eurer Nähe befindet, lasst euch nicht erwischen!
 
             Damit Doro und Felix ihre Hochzeit im Nachhinein aus möglichst vielen Blickwinkeln erleben können, bitten wir Euch im Laufe des Tages kurze Fotos aufzunehmen (wer mag auch gerne Videos) und diese über den Button oben hochzuladen.
-            Auf eurer kleinen Karte steht ein Zeitslot- bitte macht zu dieser Zeit Fotos. Ihr seid herzlich eingeladen, auch Fotos zu anderen Zeiten hinzuzufügen.
+            Auf eurer kleinen Karte steht ein Zeitslot - bitte macht zu dieser Zeit Fotos. Ihr seid herzlich eingeladen, auch Fotos zu anderen Zeiten hinzuzufügen.
 
           </p>
           <ul className="mt-10">
-            Hier ein paar Ideen für die Momentaufnahmen:
+            Hier sind ein paar Ideen für die Momentaufnahmen:
             <li>- Selfies</li>
             <li>- Lustige Situationen</li>
             <li>- Schöne/emotionale Momente</li>
@@ -64,6 +65,9 @@ export default function Home() {
         </footer>
 
       </main>
+
+      {/* Draggable Photos Overlay */}
+      <PhotosOnMain />
     </div>
   )
 }
