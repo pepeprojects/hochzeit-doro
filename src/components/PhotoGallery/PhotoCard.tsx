@@ -81,6 +81,15 @@ export default function PhotoCard({ photo, onClose }: PhotoCardProps) {
                     draggable={false}
                 />
 
+                {/* Text Overlay für Foto 1 */}
+                {photo.id === '1' && (
+                    <div className="absolute inset-0 bg-black/40 rounded-lg flex items-center justify-center pointer-events-none">
+                        <div className={`text-white text-xs font-medium text-center px-2 ${playfair.className}`}>
+                            Verschieb mich
+                        </div>
+                    </div>
+                )}
+
                 {/* Text Overlay für Foto 3 */}
                 {photo.id === '3' && (
                     <div className="absolute inset-0 bg-black/40 rounded-lg flex items-center justify-center pointer-events-none">

@@ -25,7 +25,7 @@ const mockPhotos: Photo[] = [
         uploadedAt: new Date(),
         uploadedBy: 'Gast 2',
         position: 2,
-        x: 500,
+        x: 1100,
         y: 400,
         size: 'large'
     },
@@ -76,7 +76,10 @@ export default function PhotosOnMain() {
                 {photos.map((photo) => (
                     <div
                         key={photo.id}
-                        className="pointer-events-auto"
+                        className={`pointer-events-auto ${photo.id === '1' ? 'sm:left-[50px] sm:top-[400px]' : ''
+                            } ${photo.id === '2' ? 'sm:left-[250px] sm:top-[100px]' : ''
+                            } ${photo.id === '3' ? 'sm:left-[250px] sm:top-[400px]' : ''
+                            }`}
                         style={{
                             position: 'absolute',
                             left: `${photo.x}px`,
