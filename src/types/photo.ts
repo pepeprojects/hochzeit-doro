@@ -9,6 +9,7 @@ export interface Photo {
     x: number;
     y: number;
     size: 'small' | 'medium' | 'large';
+    source?: 'local' | 'mega'; // Neue Eigenschaft
 }
 
 export interface PhotoPosition {
