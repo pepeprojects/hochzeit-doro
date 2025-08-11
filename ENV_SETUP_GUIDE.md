@@ -29,10 +29,10 @@ MEGA_SHARED_FOLDER_URL="https://mega.nz/folder/XXXXX#YYYYY"
 MEGA_UPLOAD_FOLDER_URL="https://mega.nz/filerequest/XXXXX"
 ```
 
-**Beispiel mit echten URLs:**
+**Beispiel mit Platzhaltern:**
 ```env
-MEGA_SHARED_FOLDER_URL="https://mega.nz/folder/zRswVJaI#gEPXHAiBjq_uuG-ttyOhFA"
-MEGA_UPLOAD_FOLDER_URL="https://mega.nz/filerequest/!n-QyBQZXBl!t-SG9jaHplaXQgRG9ybyB1bmQgRmVsaXg!m-Mg"
+MEGA_SHARED_FOLDER_URL="https://mega.nz/folder/XXXXX#YYYYY"
+MEGA_UPLOAD_FOLDER_URL="https://mega.nz/filerequest/XXXXX"
 ```
 
 ### **3. Alternative: Account-based MEGA (Optional)**
@@ -74,7 +74,7 @@ npm run dev
 ### **2. API testen**
 ```bash
 # Shared Folder Streaming API testen
-curl -X GET "http://localhost:3000/api/mega/shared/stream?folderUrl=https://mega.nz/folder/zRswVJaI&hash=gEPXHAiBjq_uuG-ttyOhFA"
+curl -X GET "http://localhost:3000/api/mega/shared/stream?folderUrl=https://mega.nz/folder/XXXXX&hash=YYYYY"
 ```
 
 **Erwartete Response:**
@@ -158,10 +158,10 @@ npm run dev
 
 ## 📊 **Funktionierende Konfiguration**
 
-### **Getestete URLs:**
+### **Beispiel-Konfiguration:**
 ```env
-MEGA_SHARED_FOLDER_URL="https://mega.nz/folder/zRswVJaI#gEPXHAiBjq_uuG-ttyOhFA"
-MEGA_UPLOAD_FOLDER_URL="https://mega.nz/filerequest/!n-QyBQZXBl!t-SG9jaHplaXQgRG9ybyB1bmQgRmVsaXg!m-Mg"
+MEGA_SHARED_FOLDER_URL="https://mega.nz/folder/XXXXX#YYYYY"
+MEGA_UPLOAD_FOLDER_URL="https://mega.nz/filerequest/XXXXX"
 ```
 
 ### **Geladene Bilder:**

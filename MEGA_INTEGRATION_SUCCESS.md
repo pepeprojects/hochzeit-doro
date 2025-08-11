@@ -62,7 +62,7 @@ const nextConfig: NextConfig = {
 
 ### **Shared Folder Streaming API:**
 ```bash
-curl -X GET "http://localhost:3000/api/mega/shared/stream?folderUrl=https://mega.nz/folder/zRswVJaI&hash=gEPXHAiBjq_uuG-ttyOhFA"
+curl -X GET "http://localhost:3000/api/mega/shared/stream?folderUrl=https://mega.nz/folder/XXXXX&hash=YYYYY"
 ```
 
 **Response:**
@@ -135,7 +135,7 @@ curl -X GET "http://localhost:3000/api/mega/shared/stream?folderUrl=https://mega
 ## 🔄 **Automatische Updates**
 
 ### **Neue Bilder hinzufügen:**
-1. **MEGA-Ordner** öffnen: [https://mega.nz/folder/zRswVJaI#gEPXHAiBjq_uuG-ttyOhFA](https://mega.nz/folder/zRswVJaI#gEPXHAiBjq_uuG-ttyOhFA)
+1. **MEGA-Ordner** öffnen: [https://mega.nz/folder/XXXXX#YYYYY](https://mega.nz/folder/XXXXX#YYYYY)
 2. **Neue Bilder** hochladen
 3. **5 Minuten warten** oder **Browser-Refresh**
 4. **Bilder werden automatisch** als Base64 geladen und angezeigt

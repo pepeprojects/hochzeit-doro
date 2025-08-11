@@ -214,7 +214,7 @@ NEXT_PUBLIC_MEGA_MFA_CODE=optional-mfa-code
 ### API Tests
 ```bash
 # Shared Folder Streaming API
-curl -X GET "http://localhost:3000/api/mega/shared/stream?folderUrl=https://mega.nz/folder/zRswVJaI&hash=gEPXHAiBjq_uuG-ttyOhFA"
+curl -X GET "http://localhost:3000/api/mega/shared/stream?folderUrl=https://mega.nz/folder/XXXXX&hash=YYYYY"
 
 # Response: Base64 Data URLs
 {
