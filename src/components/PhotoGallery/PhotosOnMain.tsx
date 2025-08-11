@@ -5,6 +5,7 @@ import { AnimatePresence } from 'motion/react'
 import PhotoCard from './PhotoCard'
 import { Photo } from '@/types/photo'
 import { useMegaPhotosAdvanced } from '@/components/MegaIntegration/useMegaPhotosAdvanced'
+import { useMegaConfig } from '@/components/MegaIntegration/useMegaConfig'
 
 // Mock-Daten für Demo-Zwecke
 const mockPhotos: Photo[] = [
@@ -62,10 +63,13 @@ const mockPhotos: Photo[] = [
 export default function PhotosOnMain() {
     const [photos, setPhotos] = useState<Photo[]>(mockPhotos)
 
+    // Sichere MEGA-Konfiguration laden
+    const { config: megaConfig, loading: configLoading, error: configError } = useMegaConfig()
+
     // MEGA Integration - Shared Folder (Empfohlen)
     const { megaPhotos, loading, error, requiresMFA, connectionType } = useMegaPhotosAdvanced({
         config: {
-            sharedFolderUrl: process.env.NEXT_PUBLIC_MEGA_SHARED_FOLDER_URL
+            sharedFolderUrl: megaConfig?.sharedFolderUrl || undefined
         },
         refreshInterval: 300000 // 5 Minuten
     })
@@ -115,26 +119,31 @@ export default function PhotosOnMain() {
     return (
         <div className="fixed inset-0 pointer-events-none z-10">
             {/* MEGA Loading Indicator */}
-            {loading && (
+            {(loading || configLoading) && (
                 <div className="absolute top-4 right-4 bg-black/50 text-white px-3 py-1 rounded text-sm pointer-events-none">
-                    MEGA lädt... {connectionType === 'shared' ? '(Shared Folder + Streaming)' : '(Account)'}
+                    MEGA lädt... {configLoading ? '(Konfiguration)' : connectionType === 'shared' ? '(Shared Folder + Streaming)' : '(Account)'}
                 </div>
             )}
 
             {/* MEGA Error Indicator */}
-            {error && (
+            {(error || configError) && (
                 <div className="absolute top-4 right-4 bg-red-500/80 text-white px-3 py-1 rounded text-sm pointer-events-none max-w-xs">
                     <div className="font-semibold">MEGA Fehler:</div>
-                    <div className="text-xs mt-1">{error}</div>
+                    {configError && (
+                        <div className="text-xs mt-1">Konfiguration: {configError}</div>
+                    )}
+                    {error && (
+                        <div className="text-xs mt-1">API: {error}</div>
+                    )}
                     {requiresMFA && (
                         <div className="text-xs mt-1">
-                            MFA Code erforderlich. Bitte in .env.local hinzufügen: NEXT_PUBLIC_MEGA_MFA_CODE=your-mfa-code
+                            MFA Code erforderlich. Bitte in .env.local hinzufügen: MEGA_MFA_CODE=your-mfa-code
                         </div>
                     )}
-                    {error.includes('Keine MEGA-Konfiguration') && (
+                    {(error?.includes('Keine MEGA-Konfiguration') || configError) && (
                         <div className="text-xs mt-1">
                             Fügen Sie in .env.local hinzu:<br />
-                            NEXT_PUBLIC_MEGA_SHARED_FOLDER_URL=https://mega.nz/folder/XXXXX#YYYYY
+                            MEGA_SHARED_FOLDER_URL=https://mega.nz/folder/XXXXX#YYYYY
                         </div>
                     )}
                 </div>

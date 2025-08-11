@@ -22,8 +22,8 @@ touch .env.local
 **Empfohlen**: Shared Folder URL für Anzeige und Upload-URL für Gäste
 
 ```env
-# MEGA Integration (Shared Folder) - EMPFOHLEN
-NEXT_PUBLIC_MEGA_SHARED_FOLDER_URL="https://mega.nz/folder/XXXXX#YYYYY"
+# MEGA Integration (Shared Folder) - Server-seitig, sicherer
+MEGA_SHARED_FOLDER_URL="https://mega.nz/folder/XXXXX#YYYYY"
 
 # MEGA Upload URL für Gäste (Server-seitig, sicherer)
 MEGA_UPLOAD_FOLDER_URL="https://mega.nz/filerequest/XXXXX"
@@ -31,7 +31,7 @@ MEGA_UPLOAD_FOLDER_URL="https://mega.nz/filerequest/XXXXX"
 
 **Beispiel mit echten URLs:**
 ```env
-NEXT_PUBLIC_MEGA_SHARED_FOLDER_URL="https://mega.nz/folder/zRswVJaI#gEPXHAiBjq_uuG-ttyOhFA"
+MEGA_SHARED_FOLDER_URL="https://mega.nz/folder/zRswVJaI#gEPXHAiBjq_uuG-ttyOhFA"
 MEGA_UPLOAD_FOLDER_URL="https://mega.nz/filerequest/!n-QyBQZXBl!t-SG9jaHplaXQgRG9ybyB1bmQgRmVsaXg!m-Mg"
 ```
 
@@ -114,7 +114,7 @@ Stellen Sie sicher, dass `.env.local` in `.gitignore` steht:
 1. **Vercel Dashboard** öffnen
 2. **Project Settings** → **Environment Variables**
 3. **Variablen hinzufügen**:
-   - **Name**: `NEXT_PUBLIC_MEGA_SHARED_FOLDER_URL`
+   - **Name**: `MEGA_SHARED_FOLDER_URL`
    - **Value**: `https://mega.nz/folder/XXXXX#YYYYY`
    - **Environment**: Production, Preview, Development
    
@@ -160,7 +160,7 @@ npm run dev
 
 ### **Getestete URLs:**
 ```env
-NEXT_PUBLIC_MEGA_SHARED_FOLDER_URL="https://mega.nz/folder/zRswVJaI#gEPXHAiBjq_uuG-ttyOhFA"
+MEGA_SHARED_FOLDER_URL="https://mega.nz/folder/zRswVJaI#gEPXHAiBjq_uuG-ttyOhFA"
 MEGA_UPLOAD_FOLDER_URL="https://mega.nz/filerequest/!n-QyBQZXBl!t-SG9jaHplaXQgRG9ybyB1bmQgRmVsaXg!m-Mg"
 ```
 
