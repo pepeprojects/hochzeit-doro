@@ -44,8 +44,9 @@ cp .env.example .env.local
 ### Environment Variables (.env.local)
 
 ```env
-# MEGA Integration (Shared Folder)
-NEXT_PUBLIC_MEGA_SHARED_FOLDER_URL="https://mega.nz/folder/XXXXX#YYYYY"
+# MEGA Integration (Shared Folder) - Server-seitig, sicherer
+MEGA_SHARED_FOLDER_URL="https://mega.nz/folder/XXXXX#YYYYY"
+MEGA_UPLOAD_FOLDER_URL="https://mega.nz/filerequest/XXXXX"
 
 # Optional: Account-based MEGA (Alternative)
 NEXT_PUBLIC_MEGA_EMAIL=your-email@example.com
@@ -63,7 +64,7 @@ NEXT_PUBLIC_MEGA_MFA_CODE=optional-mfa-code
 
 2. **Environment Variable setzen**:
    ```env
-   NEXT_PUBLIC_MEGA_SHARED_FOLDER_URL="https://mega.nz/folder/XXXXX#YYYYY"
+   MEGA_SHARED_FOLDER_URL="https://mega.nz/folder/XXXXX#YYYYY"
    ```
 
 ## 🎯 MEGA Integration Details
@@ -185,7 +186,8 @@ module.exports = {
 
 2. **Environment Variables setzen**:
    - Vercel Dashboard → Project Settings → Environment Variables
-   - `NEXT_PUBLIC_MEGA_SHARED_FOLDER_URL` hinzufügen
+   - `MEGA_SHARED_FOLDER_URL` hinzufügen (Server-seitig, sicherer)
+- `MEGA_UPLOAD_FOLDER_URL` hinzufügen (Server-seitig, sicherer)
 
 3. **Automatisches Deployment**:
    - Jeder Push auf `main` Branch deployt automatisch

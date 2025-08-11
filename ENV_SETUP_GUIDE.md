@@ -61,7 +61,7 @@ NEXT_PUBLIC_MEGA_MFA_CODE=optional-mfa-code
 
 ### **Schritt 3: Environment Variable setzen**
 ```env
-NEXT_PUBLIC_MEGA_SHARED_FOLDER_URL="https://mega.nz/folder/XXXXX#YYYYY"
+MEGA_SHARED_FOLDER_URL="https://mega.nz/folder/XXXXX#YYYYY"
 ```
 
 ## ✅ **Konfiguration testen**
@@ -128,10 +128,10 @@ Stellen Sie sicher, dass `.env.local` in `.gitignore` steht:
 **Lösung**: Stellen Sie sicher, dass die URL den Hash enthält:
 ```env
 # ✅ Korrekt
-NEXT_PUBLIC_MEGA_SHARED_FOLDER_URL="https://mega.nz/folder/XXXXX#YYYYY"
+MEGA_SHARED_FOLDER_URL="https://mega.nz/folder/XXXXX#YYYYY"
 
 # ❌ Falsch
-NEXT_PUBLIC_MEGA_SHARED_FOLDER_URL="https://mega.nz/folder/XXXXX"
+MEGA_SHARED_FOLDER_URL="https://mega.nz/folder/XXXXX"
 ```
 
 ### **Problem: "No images found"**

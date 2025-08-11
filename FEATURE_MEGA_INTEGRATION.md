@@ -157,10 +157,13 @@ export interface Photo {
 ### 5. Erweiterte PhotosOnMain.tsx
 
 ```typescript
-// Finale Integration
+// Sichere MEGA-Konfiguration laden
+const { config: megaConfig, loading: configLoading, error: configError } = useMegaConfig()
+
+// MEGA Integration - Shared Folder (Empfohlen)
 const { megaPhotos, loading, error, requiresMFA, connectionType } = useMegaPhotosAdvanced({
   config: {
-    sharedFolderUrl: process.env.NEXT_PUBLIC_MEGA_SHARED_FOLDER_URL
+    sharedFolderUrl: megaConfig?.sharedFolderUrl || undefined
   },
   refreshInterval: 300000 // 5 Minuten
 })
@@ -182,8 +185,11 @@ useEffect(() => {
 
 ### `.env.local`
 ```env
-# MEGA Integration (Shared Folder) - EMPFOHLEN
-NEXT_PUBLIC_MEGA_SHARED_FOLDER_URL="https://mega.nz/folder/XXXXX#YYYYY"
+# MEGA Integration (Shared Folder) - Server-seitig, sicherer
+MEGA_SHARED_FOLDER_URL="https://mega.nz/folder/XXXXX#YYYYY"
+
+# MEGA Upload URL für Gäste (Server-seitig, sicherer)
+MEGA_UPLOAD_FOLDER_URL="https://mega.nz/filerequest/XXXXX"
 
 # Optional: Account-based MEGA (Alternative)
 NEXT_PUBLIC_MEGA_EMAIL=your-email@example.com
@@ -240,8 +246,9 @@ curl -X GET "http://localhost:3000/api/mega/shared/stream?folderUrl=https://mega
 ### Vercel Environment Variables
 1. ✅ Vercel Dashboard öffnen
 2. ✅ Project Settings → Environment Variables
-3. ✅ `NEXT_PUBLIC_MEGA_SHARED_FOLDER_URL` hinzufügen
-4. ✅ Production und Preview Deploy
+3. ✅ `MEGA_SHARED_FOLDER_URL` hinzufügen (Server-seitig, sicherer)
+4. ✅ `MEGA_UPLOAD_FOLDER_URL` hinzufügen (Server-seitig, sicherer)
+5. ✅ Production und Preview Deploy
 
 ### Build-Optimierung
 - ✅ **Bundle Size**: MEGA.js nur server-side laden
