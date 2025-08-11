@@ -25,14 +25,14 @@ touch .env.local
 # MEGA Integration (Shared Folder) - EMPFOHLEN
 NEXT_PUBLIC_MEGA_SHARED_FOLDER_URL="https://mega.nz/folder/XXXXX#YYYYY"
 
-# MEGA Upload URL für Gäste
-NEXT_PUBLIC_MEGA_UPLOAD_FOLDER_URL="https://mega.nz/filerequest/XXXXX"
+# MEGA Upload URL für Gäste (Server-seitig, sicherer)
+MEGA_UPLOAD_FOLDER_URL="https://mega.nz/filerequest/XXXXX"
 ```
 
 **Beispiel mit echten URLs:**
 ```env
 NEXT_PUBLIC_MEGA_SHARED_FOLDER_URL="https://mega.nz/folder/zRswVJaI#gEPXHAiBjq_uuG-ttyOhFA"
-NEXT_PUBLIC_MEGA_UPLOAD_FOLDER_URL="https://mega.nz/filerequest/!n-QyBQZXBl!t-SG9jaHplaXQgRG9ybyB1bmQgRmVsaXg!m-Mg"
+MEGA_UPLOAD_FOLDER_URL="https://mega.nz/filerequest/!n-QyBQZXBl!t-SG9jaHplaXQgRG9ybyB1bmQgRmVsaXg!m-Mg"
 ```
 
 ### **3. Alternative: Account-based MEGA (Optional)**
@@ -118,7 +118,7 @@ Stellen Sie sicher, dass `.env.local` in `.gitignore` steht:
    - **Value**: `https://mega.nz/folder/XXXXX#YYYYY`
    - **Environment**: Production, Preview, Development
    
-   - **Name**: `NEXT_PUBLIC_MEGA_UPLOAD_FOLDER_URL`
+   - **Name**: `MEGA_UPLOAD_FOLDER_URL`
    - **Value**: `https://mega.nz/filerequest/XXXXX`
    - **Environment**: Production, Preview, Development
 
@@ -161,7 +161,7 @@ npm run dev
 ### **Getestete URLs:**
 ```env
 NEXT_PUBLIC_MEGA_SHARED_FOLDER_URL="https://mega.nz/folder/zRswVJaI#gEPXHAiBjq_uuG-ttyOhFA"
-NEXT_PUBLIC_MEGA_UPLOAD_FOLDER_URL="https://mega.nz/filerequest/!n-QyBQZXBl!t-SG9jaHplaXQgRG9ybyB1bmQgRmVsaXg!m-Mg"
+MEGA_UPLOAD_FOLDER_URL="https://mega.nz/filerequest/!n-QyBQZXBl!t-SG9jaHplaXQgRG9ybyB1bmQgRmVsaXg!m-Mg"
 ```
 
 ### **Geladene Bilder:**

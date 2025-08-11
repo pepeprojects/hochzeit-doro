@@ -6,6 +6,9 @@ import PhotosOnMain from '@/components/PhotoGallery/PhotosOnMain'
 const playfair = Playfair_Display({ subsets: ['latin'] })
 
 export default function Home() {
+  // Server-seitige Environment Variables (sicherer)
+  const uploadUrl = process.env.MEGA_UPLOAD_FOLDER_URL || '#'
+
   return (
     <div className="min-h-screen bg-cover bg-center bg-no-repeat" style={{ backgroundImage: 'url(/background.png)' }}>
       <main className={`${styles.main} text-white`} >
@@ -15,7 +18,7 @@ export default function Home() {
 
 
           <button className="flex align-center mx-auto mt-10 bg-transparent hover:bg-amber-100 text-white font-semibold hover:text-black py-2 px-4 border border-amber-200 hover:border-transparent rounded">
-            <a href={process.env.NEXT_PUBLIC_MEGA_UPLOAD_FOLDER_URL} target="_blank" rel="noopener noreferrer">
+            <a href={uploadUrl} target="_blank" rel="noopener noreferrer">
               Hier Fotos hochladen
             </a>
           </button>
