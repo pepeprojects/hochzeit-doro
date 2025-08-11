@@ -15,7 +15,9 @@ export default function Home() {
 
 
           <button className="flex align-center mx-auto mt-10 bg-transparent hover:bg-amber-100 text-white font-semibold hover:text-black py-2 px-4 border border-amber-200 hover:border-transparent rounded">
-            <a href="https://mega.nz/filerequest/yPZaQ6HLPxc" target="_blank" >Hier Fotos hochladen</a>
+            <a href={process.env.NEXT_PUBLIC_MEGA_UPLOAD_FOLDER_URL} target="_blank" rel="noopener noreferrer">
+              Hier Fotos hochladen
+            </a>
           </button>
 
 

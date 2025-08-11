@@ -17,18 +17,22 @@ Erstellen Sie eine `.env.local` Datei im Root-Verzeichnis:
 touch .env.local
 ```
 
-### **2. MEGA Shared Folder URL konfigurieren**
+### **2. MEGA URLs konfigurieren**
 
-**Empfohlen**: Shared Folder URL (keine Account-Credentials nötig)
+**Empfohlen**: Shared Folder URL für Anzeige und Upload-URL für Gäste
 
 ```env
 # MEGA Integration (Shared Folder) - EMPFOHLEN
 NEXT_PUBLIC_MEGA_SHARED_FOLDER_URL="https://mega.nz/folder/XXXXX#YYYYY"
+
+# MEGA Upload URL für Gäste
+NEXT_PUBLIC_MEGA_UPLOAD_FOLDER_URL="https://mega.nz/filerequest/XXXXX"
 ```
 
-**Beispiel mit echter URL:**
+**Beispiel mit echten URLs:**
 ```env
 NEXT_PUBLIC_MEGA_SHARED_FOLDER_URL="https://mega.nz/folder/zRswVJaI#gEPXHAiBjq_uuG-ttyOhFA"
+NEXT_PUBLIC_MEGA_UPLOAD_FOLDER_URL="https://mega.nz/filerequest/!n-QyBQZXBl!t-SG9jaHplaXQgRG9ybyB1bmQgRmVsaXg!m-Mg"
 ```
 
 ### **3. Alternative: Account-based MEGA (Optional)**
@@ -109,9 +113,13 @@ Stellen Sie sicher, dass `.env.local` in `.gitignore` steht:
 ### **Vercel Deployment**
 1. **Vercel Dashboard** öffnen
 2. **Project Settings** → **Environment Variables**
-3. **Variable hinzufügen**:
+3. **Variablen hinzufügen**:
    - **Name**: `NEXT_PUBLIC_MEGA_SHARED_FOLDER_URL`
    - **Value**: `https://mega.nz/folder/XXXXX#YYYYY`
+   - **Environment**: Production, Preview, Development
+   
+   - **Name**: `NEXT_PUBLIC_MEGA_UPLOAD_FOLDER_URL`
+   - **Value**: `https://mega.nz/filerequest/XXXXX`
    - **Environment**: Production, Preview, Development
 
 ## 🐛 **Troubleshooting**
@@ -150,9 +158,10 @@ npm run dev
 
 ## 📊 **Funktionierende Konfiguration**
 
-### **Getestete URL:**
+### **Getestete URLs:**
 ```env
 NEXT_PUBLIC_MEGA_SHARED_FOLDER_URL="https://mega.nz/folder/zRswVJaI#gEPXHAiBjq_uuG-ttyOhFA"
+NEXT_PUBLIC_MEGA_UPLOAD_FOLDER_URL="https://mega.nz/filerequest/!n-QyBQZXBl!t-SG9jaHplaXQgRG9ybyB1bmQgRmVsaXg!m-Mg"
 ```
 
 ### **Geladene Bilder:**
